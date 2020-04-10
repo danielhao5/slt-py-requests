@@ -47,4 +47,5 @@ def print_response(resp, dump_body=False):
         elif "xml" in content_type:
             print(prettyx.parseString(resp.text).toprettyxml())
         elif "image" in content_type:
-            print(prettyx.parseString(resp.text).toprettyxml())
+            # is this sensible?
+            print(resp.content)

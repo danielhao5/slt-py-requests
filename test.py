@@ -8,6 +8,7 @@ Purpose: ???
 import requests
 from print_response import print_response
 
+
 def main():
     """
     Execution starts here.
@@ -20,6 +21,7 @@ def main():
     resp = requests.get("http://dummy.restapiexample.com/api/v1/employees")
     # import pdb; pdb.set_trace()
     print_response(resp, dump_body=True)
+
 
 if __name__ == "__main__":
     main()

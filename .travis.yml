@@ -9,9 +9,9 @@ install:
 
 # Perform pre-checks
 before_script:
-  - "pylint *.py"
+  - "make lint"
 
 # Perform runbook testing with mock ASA inputs.
 script:
-  - "python test.py"
+  - "make run"
 ...
