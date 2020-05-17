@@ -19,9 +19,11 @@ lint:
 run:
 	@echo "Starting  run"
 	mkdir -p resp
+	python print_response.py
 	python get_some_pokemon.py
 	python get_all_pokemon.py
-	python cisco_sdwan_devices.py
+	python get_cisco_sdwan_devices.py
+	python cache_control.py
 	@echo "Completed run"
 
 .PHONY: clean

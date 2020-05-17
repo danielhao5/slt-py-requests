@@ -7,10 +7,10 @@ from the 'requests' library for troubleshooting/learning.
 """
 
 import json
-import xml.dom.minidom as prettyx
+import requests
 
 
-def print_response(resp, filedir="resp", filename=None):
+def print_response(resp, filedir="resp", filename=None, dump_body=True):
     """
     Print the key details from a given response. Set dump_body to true
     to reveal the body content in the most appropriate format based on
@@ -37,41 +37,42 @@ def print_response(resp, filedir="resp", filename=None):
     for hist in resp.history:
         print(f"  - {hist.url} -> {hist.status_code}/{hist.reason}")
 
-    # First, determine the content type, defaulting to "text"
-    content_type = resp.headers.get("Content-Type", "text")
+    # Optionally dump the body; useful for plain text responses (not files)
+    if dump_body:
+        # First, determine the content type, defaulting to "text"
+        content_type = resp.headers.get("Content-Type", "text")
 
-    # If a filename was not supplied, create a dynamic one using
-    # the method name and the in-memory ID of the response object
-    if not filename:
-        filename = f"{resp.request.method}_{id(resp)}".lower()
+        # If a filename was not supplied, create a dynamic one using
+        # the method name and the in-memory ID of the response object
+        if not filename:
+            filename = f"{resp.request.method}_{id(resp)}".lower()
 
-    # Define the entire filepath using the directory and name
-    filepath = f"{filedir}/{filename}"
+        # Define the entire filepath using the directory and name
+        filepath = f"{filedir}/{filename}"
 
-    # Based on the content type, create different files
-    if "text" in content_type:
-        filepath += ".txt"
-        with open(filepath, "w") as handle:
-            handle.write(resp.text)
-    elif "html" in content_type:
-        filepath += ".html"
-        with open(filepath, "w") as handle:
-            handle.write(resp.text)
-    elif "html" in content_type:
-        filepath += ".html"
-        with open(filepath, "w") as handle:
-            handle.write(resp.text)
-    elif "json" in content_type:
-        filepath += ".json"
-        with open(filepath, "w") as handle:
-            json.dump(resp.json(), handle, indent=2)
-    elif "xml" in content_type:
-        filepath += ".xml"
-        with open(filepath, "w") as handle:
-            handle.write(prettyx.parseString(resp.text).toprettyxml())
-    elif "image" in content_type:
-        filepath += ".jpg"
-        with open(filepath, "wb") as handle:
-            handle.write(resp.content)
+        # Based on the content type, create different files.
+        # Add more options if you want ...
+        if "html" in content_type:
+            filepath += ".html"
+            with open(filepath, "w") as handle:
+                handle.write(resp.text)
+        elif "json" in content_type:
+            filepath += ".json"
+            with open(filepath, "w") as handle:
+                json.dump(resp.json(), handle, indent=2)
 
-    print(f"HTTP body written to {filepath}")
+        print(f"HTTP body written to {filepath}")
+
+
+def main():
+    """
+    Performs a quick test on the print_response() function.
+    """
+
+    resp = requests.get("http://njrusmc.net")
+    resp.raise_for_status()
+    print_response(resp, filename="get_nick_website")
+
+
+if __name__ == "__main__":
+    main()
