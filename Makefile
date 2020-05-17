@@ -21,6 +21,7 @@ run:
 	mkdir -p resp
 	python get_some_pokemon.py
 	python get_all_pokemon.py
+	python cisco_sdwan_devices.py
 	@echo "Completed run"
 
 .PHONY: clean
