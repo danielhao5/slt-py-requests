@@ -16,11 +16,12 @@ def main():
 
     resp = requests.get("http://njrusmc.net")
     print_response(resp)
-    print_response(resp, dump_body=True)
 
     resp = requests.get("http://dummy.restapiexample.com/api/v1/employees")
-    # import pdb; pdb.set_trace()
-    print_response(resp, dump_body=True)
+    print_response(resp)
+
+    resp = requests.get("https://tinyurl.com/y9jt8ah4")
+    print_response(resp)
 
 
 if __name__ == "__main__":

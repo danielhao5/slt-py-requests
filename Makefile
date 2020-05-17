@@ -18,11 +18,14 @@ lint:
 .PHONY: run
 run:
 	@echo "Starting  run"
-	python test.py
+	mkdir -p resp
+	python get_some_pokemon.py
+	python get_all_pokemon.py
 	@echo "Completed run"
 
 .PHONY: clean
 clean:
 	@echo "Starting  clean"
-	find . -name "*.pyc" | xargs -r rm
+	find . -name "*.pyc" | xargs rm
+	rm -f resp/*
 	@echo "Starting  clean"
