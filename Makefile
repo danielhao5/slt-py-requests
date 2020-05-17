@@ -2,11 +2,18 @@
 # Purpose: Provide simple "make" targets for developers
 # See README for details about each target.
 
-# Default goal runs the "test" target
-.DEFAULT_GOAL := test
+# Default goal runs the "all" target
+.DEFAULT_GOAL := all
 
-.PHONY: test
-test: clean lint run
+.PHONY: all
+all: clean lint run
+
+.PHONY: setup
+setup:
+	@echo "Starting  setup"
+	pip install -r requirements.txt
+	mkdir -p resp
+	@echo "Completed setup"
 
 .PHONY: lint
 lint:
@@ -18,12 +25,13 @@ lint:
 .PHONY: run
 run:
 	@echo "Starting  run"
-	mkdir -p resp
 	python print_response.py
 	python get_some_pokemon.py
 	python get_all_pokemon.py
 	python get_cisco_sdwan_devices.py
 	python cache_control.py
+	python redirect_automatic.py
+	python redirect_manual.py
 	@echo "Completed run"
 
 .PHONY: clean
