@@ -39,7 +39,7 @@ def main():
     # Authentication succeeded; issue HTTP GET to collect devices
     devices = sess.get(f"{api_path}/dataservice/device", verify=False)
     devices.raise_for_status()
-    print_response(devices, filename=f"get_cisco_sdwan_devices")
+    print_response(devices, filename="get_cisco_sdwan_devices")
 
 
 if __name__ == "__main__":
