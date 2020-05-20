@@ -29,6 +29,9 @@ def main():
     sess = requests.session()
     auth = sess.post(f"{api_path}/j_security_check", data=creds, verify=False)
 
+    # Optional debugging statement
+    # import pdb; pdb.set_trace()
+
     # An authentication request has failed if we receive a failing return code
     # OR if there is any text supplied in the response. Failing authentications
     # often return code 200 (OK) but include a lot of HTML content, indicating a

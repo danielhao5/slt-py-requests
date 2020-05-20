@@ -4,6 +4,7 @@
 Author: Nick Russo (njrusmc@gmail.com)
 Purpose: Collects a subset of pokemon items then digs one level
 deeper to reveal individual characteristics of each.
+Documentation available at https://pokeapi.co/docs/v2.html
 """
 
 import requests
@@ -16,16 +17,20 @@ def main():
     """
 
     # Grab the first 20 (by default) pokemon available
-    resp = requests.get("https://pokeapi.co/api/v2/pokemon")
+    headers = {"Accept": "application/json"}
+    resp = requests.get("https://pokeapi.co/api/v2/pokemon", headers=headers)
 
     # If an error occurred (resp.status_code >= 400), raise an HTTPError
     resp.raise_for_status()
     print_response(resp, filename="get_pokemon")
 
+    # Optional debugging statement
+    # import pdb; pdb.set_trace()
+
     # Go deeper; get the specific details for each pokemon
     # For brevity, let's just grab the first 3 using a slice
     for pokemon in resp.json()["results"][:3]:
-        resp = requests.get(pokemon["url"])
+        resp = requests.get(pokemon["url"], headers=headers)
 
         # You don't HAVE to raise exceptions for failed requests. Can test
         # for "ok" which passes when resp.status_code < 400

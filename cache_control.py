@@ -18,11 +18,13 @@ def main():
     Execution begins here.
     """
 
-    # Create a logger object to let us see what is happening behind the
-    # scenes with the HTTP URLs
-    logging.basicConfig()
+    # Use our standard logger template
+    logging.basicConfig(
+        format="%(asctime)s %(levelname)-8s %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+        level=logging.DEBUG,
+    )
     logger = logging.getLogger()
-    logger.setLevel(logging.DEBUG)
 
     # Specify list of URLs to perform an HTTP GET against
     # Author's note: These files don't have "Cache-Control" anymore as I removed
@@ -41,6 +43,7 @@ def main():
         cached_sess = CacheControl(requests.session())
 
         # Print information from first run, include key headers
+        logger.info("First GET to %s", url)
         resp = cached_sess.get(url)
         resp.raise_for_status()
         print_response(resp, dump_body=False)
@@ -48,6 +51,7 @@ def main():
         # Slight delay just to show the cache timer countdown
         # Print information from second run, but focus is on background debugs
         time.sleep(2)
+        logger.info("Second GET to %s", url)
         resp = cached_sess.get(url)
         resp.raise_for_status()
         print_response(resp, dump_body=False)
