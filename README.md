@@ -29,7 +29,35 @@ After cloning, you should see the following file system structure:
 
 ```
 $ tree
-TODO
+.
+|-- Makefile
+|-- README.md
+|-- basic_get.py
+|-- basic_log.py
+|-- cache_control.py
+|-- data_ref
+|   |-- README.md
+|   |-- cache_control_log.txt
+|   |-- get_all_pokemon_1.json
+|   |-- get_all_pokemon_2.json
+|   |-- get_all_pokemon_3.json
+|   |-- get_all_pokemon_4.json
+|   |-- get_all_pokemon_5.json
+|   |-- get_bulbasaur.json
+|   |-- get_cisco_sdwan_devices.json
+|   |-- get_ivysaur.json
+|   |-- get_nick_website.html
+|   |-- get_some_pokemon.json
+|   |-- get_venusaur.json
+|   `-- session_test_log.txt
+|-- get_all_pokemon.py
+|-- get_cisco_sdwan_devices.py
+|-- get_some_pokemon.py
+|-- print_response.py
+|-- redirect_automatic.py
+|-- redirect_manual.py
+|-- requirements.txt
+`-- session_test.py
 ```
 
 Ensure you have Python 3.6 or newer installed along with pip.
@@ -55,7 +83,16 @@ be no errors.
 ## Usage
 This repository contains several scripts which are detailed in the course.
 Below is a summary of each one:
-TODO
+  * `basic_get.py`: Trivial script to test Python requests
+  * `basic_log.py`: Trivial script to test Python requests with logging enabled
+  * `cache_control.py`: Use a variety of URLs to test caching options
+  * `session_test.py`: Show the benefits of using a long-lived TCP session
+  * `get_cisco_sdwan_devices.py`: Authenticate to Cisco SD-WAN and get devices
+  * `get_some_pokemon.py`: Collect a subset of pokemon and their details
+  * `get_all_pokemon.py`: Collect all pokemon using HTTP pagination
+  * `print_response.py`: Helper function to quickly print HTTP responses
+  * `redirect_automatic.py`: Automatically follows HTTP redirects
+  * `redirect_manual.py`: Manually follows HTTP redirects
 
 ## Testing
 A GNU Makefile with phony targets is used for testing this codebase.

@@ -2,8 +2,7 @@
 
 """
 Author: Nick Russo (njrusmc@gmail.com)
-Purpose: Trivial script to test Python requests with
-additional logging enabled.
+Purpose: Trivial script to test Python requests with logging enabled.
 """
 
 import logging

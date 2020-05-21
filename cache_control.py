@@ -2,7 +2,7 @@
 
 """
 Author: Nick Russo (njrusmc@gmail.com)
-Purpose: Demonstrate basic HTTP cache-control mechanisms usinga variety
+Purpose: Demonstrate basic HTTP cache-control mechanisms using a variety
 of URLs with different cache-control characteristics.
 """
 
