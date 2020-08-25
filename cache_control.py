@@ -30,8 +30,8 @@ def main():
     # Author's note: These files don't have "Cache-Control" anymore as I removed
     # them after the demo. Please replace these URLs with your own!
     url_list = [
-        "http://njrusmc.net/jobaid/wlan_pcap.zip",  # Cache-Control: public (300s)
-        "http://njrusmc.net/jobaid/lmnop_answers.pdf",  # Cache-Control: no-store
+        "http://njrusmc.net/jobaid/mpls_pcap.zip",  # Cache-Control: public (300s)
+        "http://njrusmc.net/jobaid/ipsec_pcap.zip",  # Cache-Control: no-store
     ]
 
     # For each URL, run two GET requests, and use the logger to print out

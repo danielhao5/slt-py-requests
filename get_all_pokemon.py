@@ -28,7 +28,8 @@ def main():
     print_response(resp, filename=f"get_all_pokemon_{count}")
 
     # Optional debugging statement
-    # import pdb; pdb.set_trace()
+    # breakpoint()  # py3.7+
+    # import pdb; pdb.set_trace()  # py3.6-
 
     # Additional code to iteratively check all "next" links. You don't
     # have to specify the "limit" anymore as it is automatically included in

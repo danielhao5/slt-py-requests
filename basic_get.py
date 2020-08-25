@@ -18,6 +18,7 @@ def main(site):
     resp = requests.get(site)
 
     # If not "ok", raise HTTPError, otherwise do nothing
+    # Code: ~/environments/pyreq/lib/python3.6/site-packages/requests/models.py
     resp.raise_for_status()
     print(resp.text)
 
