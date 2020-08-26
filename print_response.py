@@ -39,8 +39,8 @@ def print_response(resp, filedir="resp", filename=None, dump_body=True):
 
     # Optionally dump the body; useful for plain text responses (not files)
     if dump_body:
-        # First, determine the content type, defaulting to "text"
-        content_type = resp.headers.get("Content-Type", "text")
+        # First, determine the content type, defaulting to "html"
+        content_type = resp.headers.get("Content-Type", "html")
 
         # If a filename was not supplied, create a dynamic one using
         # the method name and the in-memory ID of the response object

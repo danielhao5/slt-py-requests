@@ -17,12 +17,12 @@ def main():
     """
 
     # Define base URL and disable SSL warnings (self-signed cert)
-    api_path = "https://sandboxsdwan.cisco.com:8443"
+    api_path = "https://sandbox-sdwan-1.cisco.com"
     requests.packages.urllib3.disable_warnings()
 
     # These credentials are supplied by Cisco DevNet on the sandbox page:
     # https://developer.cisco.com/sdwan/learn/
-    creds = {"j_username": "devnetuser", "j_password": "Cisco123!"}
+    creds = {"j_username": "devnetuser", "j_password": "RG!_Yw919_83"}
 
     # Create session and issue POST request. "data" will unpack the dict
     # into key/value pairs. Also, disable SSL validation
