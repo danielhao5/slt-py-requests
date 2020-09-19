@@ -26,17 +26,20 @@ def main():
     )
     logger = logging.getLogger()
 
-    # Specify list of URLs to perform an HTTP GET against
-    # Author's note: These files don't have "Cache-Control" anymore as I removed
-    # them after the demo. Please replace these URLs with your own!
-    url_list = [
-        "http://njrusmc.net/jobaid/mpls_pcap.zip",  # Cache-Control: public (300s)
-        "http://njrusmc.net/jobaid/ipsec_pcap.zip",  # Cache-Control: no-store
+    # Specify list of test files to download.
+    # Go to http://njrusmc.net/cache/cache.html to see all test files
+    base_url = "http://njrusmc.net/cache"
+    test_list = [
+        "zero128k_public60.test",  # Cache-Control: public, max-age=60
+        "zero128k_nostore.test",  # Cache-Control: no-store
     ]
 
-    # For each URL, run two GET requests, and use the logger to print out
+    # For each file, run two GET requests, and use the logger to print out
     # the relevant information as requests are processed
-    for url in url_list:
+    for test_file in test_list:
+
+        # Assemble the complete URL to feed into the HTTP GET request
+        url = f"{base_url}/{test_file}"
 
         # Create the cached session object, which automatically intereprets
         # caching-related headers (requests doesn't do it natively)
