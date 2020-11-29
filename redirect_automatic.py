@@ -16,7 +16,7 @@ def main():
     """
 
     # This links to my "Python 3 By Example" course on O'Reilly
-    resp = requests.get("https://tinyurl.com/y87gofyp")
+    resp = requests.get("http://njrusmc.net/r/sltreq")
     resp.raise_for_status()
     print_response(resp, dump_body=False)
 

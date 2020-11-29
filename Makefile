@@ -25,13 +25,16 @@ lint:
 .PHONY: run
 run:
 	@echo "Starting  run"
+	python basic_get.py
+	python basic_log.py
 	python print_response.py
-	python get_some_pokemon.py
-	python get_all_pokemon.py
-	python get_cisco_sdwan_devices.py
+	python session_test.py
 	python cache_control.py
 	python redirect_automatic.py
 	python redirect_manual.py
+	python get_cisco_sdwan_devices.py
+	python get_some_pokemon.py
+	python get_all_pokemon.py
 	@echo "Completed run"
 
 .PHONY: clean
