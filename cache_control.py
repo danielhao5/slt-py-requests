@@ -50,6 +50,7 @@ def main():
         resp = cached_sess.get(url)
         resp.raise_for_status()
         print_response(resp, dump_body=False)
+        print(f"\n\n{'*' * 80}\n\n")
 
         # Slight delay just to show the cache timer countdown
         # Print information from second run, but focus is on background debugs
@@ -58,6 +59,7 @@ def main():
         resp = cached_sess.get(url)
         resp.raise_for_status()
         print_response(resp, dump_body=False)
+        print(f"\n\n{'*' * 80}\n\n")
 
 
 if __name__ == "__main__":
